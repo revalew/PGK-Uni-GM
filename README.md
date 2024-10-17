@@ -5,3 +5,7 @@ This is a repository of a game which was created by me and my friends as project
 ## Description
 
 Soon<sup>(TM)</sup>
+
+## Team
+
+Our team consists of 3 people, we want to make a functional game to gain experience in game development and pass the course with flying colours.
