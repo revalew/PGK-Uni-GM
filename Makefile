@@ -1,10 +1,13 @@
 .PHONY: push-no-tag bump-version
 
+VERSION_FILE=./version_file.txt
+VERSION=$(shell python3 -c 'import re; f=open("$(VERSION_FILE)"); print(re.search(r"__version__ = \"(.*?)\"", f.read()).group(1))')
+
 push-no-tag:
 	read -p "Enter commit message: " commitmsg; \
 	git add .; \
 	git commit -am "$$commitmsg"; \
-	git push
+	git push -u origin
 
 
 bump-version:
