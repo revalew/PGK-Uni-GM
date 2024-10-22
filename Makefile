@@ -3,11 +3,15 @@
 VERSION_FILE=./version_file.txt
 VERSION=$(shell python3 -c 'import re; f=open("$(VERSION_FILE)"); print(re.search(r"__version__ = \"(.*?)\"", f.read()).group(1))')
 
+BRANCH=$(shell git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+
+
 push-no-tag:
+# 	@echo $(BRANCH)
 	read -p "Enter commit message: " commitmsg; \
 	git add .; \
 	git commit -am "$$commitmsg"; \
-	git push --set-upstream origin git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+	git push --set-upstream origin $(BRANCH)
 
 
 bump-version:
