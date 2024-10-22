@@ -7,7 +7,7 @@ push-no-tag:
 	read -p "Enter commit message: " commitmsg; \
 	git add .; \
 	git commit -am "$$commitmsg"; \
-	git push -u origin
+	git push --set-upstream origin $(shell "git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'")
 
 
 bump-version:
