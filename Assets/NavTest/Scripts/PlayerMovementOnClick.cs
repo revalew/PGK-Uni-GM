@@ -28,9 +28,9 @@ public class PlayerMovementOnClick : MonoBehaviour
     if (Input.GetMouseButtonDown(0))
     {
       Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-      RaycastHit hit;
 
-      if (Physics.Raycast(ray, out hit))
+
+      if (Physics.Raycast(ray, out RaycastHit hit))
       {
         // Move the agent
         agent.SetDestination(hit.point);
