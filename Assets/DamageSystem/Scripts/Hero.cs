@@ -32,6 +32,11 @@ public class Hero : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         //Check for sight and attack range
@@ -61,11 +66,11 @@ public class Hero : MonoBehaviour
 
             isAttacking = true;
 
-            //animator.SetTrigger("Attack");
-
+            animator.SetBool("AttackTrigger", true);
             DealDamage(enemyAttributes.gameObject);
 
             Invoke(nameof(ResetAttack), heroAttributes.timeBetweenAttacks);
+            
         }
     }
 
@@ -81,6 +86,7 @@ public class Hero : MonoBehaviour
     private void ResetAttack()
     {
         isAttacking = false;
+        animator.SetBool("AttackTrigger", false);
     }
 
     private void OnDrawGizmosSelected()

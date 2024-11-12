@@ -101,18 +101,18 @@ public class Enemy : MonoBehaviour
 
     private void AttackHero()
     {
-        //Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
-
-        transform.LookAt(hero);
-
         if (!isAttacking
             && enemyAttributes.health > 0
             && heroAttributes.health > 0)
         {
             ///Attack code here
             //Rigidbody rb = Instantiate(projectile, spawnPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+
             //ARTUR
+            //Make sure enemy doesn't move
+            agent.SetDestination(transform.position);
+            transform.LookAt(hero);
+
             GameObject instance = Instantiate(projectile, spawnPoint.transform.position, Quaternion.identity);
             Rigidbody rb = instance.GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 15f, ForceMode.Impulse);

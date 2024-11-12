@@ -330,13 +330,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311600769}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.69506294, y: -0.12995198, z: 0.67130643, w: 0.22214337}
-  m_LocalPosition: {x: -0.18, y: -0.35, z: 0.04}
+  m_LocalRotation: {x: 0.6383727, y: -0.3041059, z: 0.7058415, w: 0.04228039}
+  m_LocalPosition: {x: -0.15, y: -0.35, z: -0.15}
   m_LocalScale: {x: 0.04, y: 0.4, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1088964689}
-  m_LocalEulerAnglesHint: {x: 151.1, y: -90, z: -7.72}
+  m_LocalEulerAnglesHint: {x: 151.1, y: -90, z: 22.044006}
 --- !u!136 &311600771
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -605,6 +605,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1793899431}
+    - target: {fileID: 3227617212004211154, guid: 9491abf08406a04f2924c7997a92db8e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c1e24fcec9c57f54fb9c6f14b23b4a4e, type: 2}
     - target: {fileID: 5054635519821294634, guid: 9491abf08406a04f2924c7997a92db8e, type: 3}
       propertyPath: m_Height
       value: 2
@@ -769,6 +773,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 632405628}
+    - target: {fileID: 3227617212004211154, guid: b26b6bfc124981fc3ac9e9dbb8a210b7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7d169229c1ed4184999506d7f1c08fdf, type: 2}
     - target: {fileID: 5054635519821294634, guid: b26b6bfc124981fc3ac9e9dbb8a210b7, type: 3}
       propertyPath: m_Radius
       value: 0.3
