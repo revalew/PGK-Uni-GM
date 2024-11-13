@@ -32,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.16, y: 1.25, z: 7.93}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 714367119752272893}
   m_Father: {fileID: 0}
@@ -47,9 +47,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 1885277800803042}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3000001
+  m_Radius: 0.15
   m_Speed: 1
-  m_Acceleration: 15
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 180
   m_StoppingDistance: 0.1
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885277800803042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 577ae2fe5457967e1b6dd74eb49ab96c, type: 3}
   m_Name: 

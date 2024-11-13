@@ -26,14 +26,15 @@ public class PathChecking : MonoBehaviour
 
   public void CheckPath() // Run this on button click
   {
-    _surface.BuildNavMesh(); // UPDATE NAVMESH
+     _surface.BuildNavMesh(); // UPDATE NAVMESH
 
-    _navMeshPath = new(); // Create path object
+     _navMeshPath = new(); // Create path object
 
     // (CalculateNewPath()) ? (_pathAvailable = true;) : (_pathAvailable = false;);
     if (CalculateNewPath())
     {
         _pathAvailable = true;
+        _character = _agent.GetComponent<ThirdPersonCharacter2>();
     }
     else
     {
@@ -44,36 +45,25 @@ public class PathChecking : MonoBehaviour
     {
         // POP-UP UI
       _pathNotFoundUI.SetActive(true);
-
-      while (true)
-      {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-        {
-          _pathNotFoundUI.SetActive(false);
-          break;
-        }
-
-      }
     }
-    else
-    {
-      if (!_playerSpawned) // Should we spawn a player?
-      {
-        // Spawn the player on the starting tile
-        Vector3 pos = new Vector3(_startingTile.transform.position.x, _startingTile.transform.position.y + 0.01f, _startingTile.transform.position.z);
+    // else
+    // {
+    //   if (!_playerSpawned) // Should we spawn a player?
+    //   {
+    //     // Spawn the player on the starting tile
+    //     Vector3 pos = new Vector3(_startingTile.transform.position.x, _startingTile.transform.position.y + 0.01f, _startingTile.transform.position.z);
         
-        _player = Instantiate(_agent.gameObject, pos, Quaternion.identity);
-        _agent = _player.GetComponent<NavMeshAgent>();
-        _playerSpawned = true;
-      };
+    //     _player = Instantiate(_agent.gameObject, pos, Quaternion.identity);
+    //     _agent = _player.GetComponent<NavMeshAgent>();
+    //     _playerSpawned = true;
+    //   };
 
-      if (_agent != null)
-      {
-        _agent.gameObject.SetActive(true);
-        _agent.updateRotation = false;
-        _character = _agent.GetComponent<ThirdPersonCharacter2>();
-      };
-    }
+    //   if (_agent != null)
+    //   {
+    //     _agent.gameObject.SetActive(true);
+    //     _agent.updateRotation = false;
+    //   };
+    // }
   }
 
   bool CalculateNewPath()
@@ -89,16 +79,14 @@ public class PathChecking : MonoBehaviour
   }
 
 
-  // Use this after the level started. Hero will go to the finnish tile
+  // // Use this after the level started. Hero will go to the finnish tile
   private void Update()
-  {
-    if (_pathAvailable && _playerSpawned)
+   {
+    if (_pathAvailable)
     {
       // Move the agent
       _agent.SetDestination(_finnishTile.transform.position);
-    }
-
-    // Animations w/ ThirdPersonCharacter2 controller
+      
     if (_agent.remainingDistance > _agent.stoppingDistance)
     {
       _character.Move(_agent.desiredVelocity, false, false);
@@ -106,6 +94,14 @@ public class PathChecking : MonoBehaviour
     else
     {
       _character.Move(Vector3.zero, false, false);
+    }
+    }
+
+    //Animations w/ ThirdPersonCharacter2 controller
+
+    if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+    {
+      _pathNotFoundUI.SetActive(false);
     }
   }
 }
