@@ -91,7 +91,6 @@ public class Hero : MonoBehaviour
 
     public void DealDamage(GameObject target)
     {
-        
         enemyAttributes = target.GetComponent<Attributes>();
         if (enemyAttributes != null)
         {

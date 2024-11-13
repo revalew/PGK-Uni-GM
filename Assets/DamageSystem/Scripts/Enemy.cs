@@ -94,8 +94,6 @@ public class Enemy : MonoBehaviour
             && enemyAttributes.health > 0
             && heroAttributes.health > 0)
         {
-            ///Attack code here
-
             //ARTUR
             GameObject instance = Instantiate(projectile, spawnPoint.transform.position, Quaternion.identity);
             Rigidbody rb = instance.GetComponent<Rigidbody>();
@@ -112,7 +110,6 @@ public class Enemy : MonoBehaviour
             isAttacking = true;
             Invoke(nameof(ResetAttack), enemyAttributes.timeBetweenAttacks);
             //ARTUR
-            ///End of attack code
         }
     }
 
