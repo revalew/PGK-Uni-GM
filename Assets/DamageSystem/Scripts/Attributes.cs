@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class Attributes: MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
 
     public float health, damage, sightRange, attackRange, timeBetweenAttacks;
 
@@ -19,7 +19,7 @@ public class Attributes: MonoBehaviour
         if (health <= 0)
         {
             animator.SetTrigger("DeathTrigger");
-            Invoke(nameof(DestroySelf), 7.0f);
+            Invoke(nameof(DestroySelf), 3.5f);
         }
     }
 
