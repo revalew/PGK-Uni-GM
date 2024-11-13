@@ -39,54 +39,71 @@ public class Hero : MonoBehaviour
 
     private void Update()
     {
-        //Check for sight and attack range
         enemyInSightRange = Physics.CheckSphere(transform.position, heroAttributes.sightRange, whatIsEnemy);
         enemyInAttackRange = Physics.CheckSphere(transform.position, heroAttributes.attackRange, whatIsEnemy);
 
+        //ARTUR
+        if (!enemyInSightRange && !enemyInAttackRange) Idle();
+        //ARTUR
         if (enemyInSightRange && !enemyInAttackRange) ChaseEnemy();
         if (enemyInAttackRange && enemyInSightRange) AttackEnemy();
     }
 
+    //ARTUR
+    private void Idle()
+    {
+        agent.SetDestination(transform.position);
+        character.Move(Vector3.zero, false, false);
+    }
+    //ARTUR
+
     private void ChaseEnemy()
     {
+        //ARTUR
         if (enemyAttributes.health > 0
             && heroAttributes.health > 0)
         {
             agent.SetDestination(enemy.position);
+            character.Move(agent.desiredVelocity, false, false);
         }
+        else
+            Idle();
+        //ARTUR
     }
 
     private void AttackEnemy()
     {
+        //Przeciwnik nie porusza się podczas ataku.
+        agent.SetDestination(transform.position);
+        character.Move(Vector3.zero, false, false);
+        transform.LookAt(enemy);
+
         if (!isAttacking
             && enemyAttributes.health > 0
             && heroAttributes.health > 0)
         {
-            transform.LookAt(enemy);
-
             isAttacking = true;
-
-            animator.SetBool("AttackTrigger", true);
             DealDamage(enemyAttributes.gameObject);
 
             Invoke(nameof(ResetAttack), heroAttributes.timeBetweenAttacks);
-            
         }
     }
 
     public void DealDamage(GameObject target)
     {
+        
         enemyAttributes = target.GetComponent<Attributes>();
         if (enemyAttributes != null)
         {
+            animator.SetBool("AttackTrigger", true);
             enemyAttributes.TakeDamage(heroAttributes.damage);
         }
     }
 
     private void ResetAttack()
     {
-        isAttacking = false;
         animator.SetBool("AttackTrigger", false);
+        isAttacking = false;
     }
 
     private void OnDrawGizmosSelected()

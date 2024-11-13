@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
     {
         hero = GameObject.Find("Hero").transform;
         agent = GetComponent<NavMeshAgent>();
+
         //ARTUR
         animator = GetComponent<Animator>();
         //ARTUR
@@ -46,73 +47,56 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        //Check for sight and attack range
         heroInSightRange = Physics.CheckSphere(transform.position, enemyAttributes.sightRange, whatIsHero);
         heroInAttackRange = Physics.CheckSphere(transform.position, enemyAttributes.attackRange, whatIsHero);
 
-        if (!heroInSightRange && !heroInAttackRange) Patroling();
+        //ARTUR
+        if (!heroInSightRange && !heroInAttackRange) Idle();
+        //ARTUR
         if (heroInSightRange && !heroInAttackRange) ChaseHero();
         if (heroInAttackRange && heroInSightRange) AttackHero();
     }
 
-    private void Patroling()
+    //ARTUR
+    // Usunięto nieużywane funkcje Patroling oraz SearchWalkPoint.
+    //ARTUR
+
+    //ARTUR
+    private void Idle()
     {
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet)
-            agent.SetDestination(walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
+        agent.SetDestination(transform.position);
+        character.Move(Vector3.zero, false, false);
     }
-
-    private void SearchWalkPoint()
-    {
-        //ARTUR
-        //Usunięto nieużywany kod.
-        //ARTUR
-
-        // Idle.
-        walkPoint = transform.position;
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet = true;
-    }
+    //ARTUR
 
     private void ChaseHero()
     {
         //ARTUR
-        agent.SetDestination(hero.position);
-
         if (enemyAttributes.health > 0
             && heroAttributes.health > 0)
         {
+            agent.SetDestination(hero.position);
             character.Move(agent.desiredVelocity, false, false);
         }
         else
-        {
-            character.Move(Vector3.zero, false, false);
-        }
+            Idle();
         //ARTUR
     }
 
     private void AttackHero()
     {
+        //Przeciwnik nie porusza się podczas ataku.
+        agent.SetDestination(transform.position);
+        character.Move(Vector3.zero, false, false);
+        transform.LookAt(hero);
+
         if (!isAttacking
             && enemyAttributes.health > 0
             && heroAttributes.health > 0)
         {
             ///Attack code here
-            //Rigidbody rb = Instantiate(projectile, spawnPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
 
             //ARTUR
-            //Make sure enemy doesn't move
-            agent.SetDestination(transform.position);
-            transform.LookAt(hero);
-
             GameObject instance = Instantiate(projectile, spawnPoint.transform.position, Quaternion.identity);
             Rigidbody rb = instance.GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 15f, ForceMode.Impulse);
@@ -133,9 +117,10 @@ public class Enemy : MonoBehaviour
     }
 
     //ARTUR
-    // Usunięto funkcję DealDamage.
+    // Usunięto nieużywaną funkcję DealDamage.
     // Funkcje TakeDamage i DestroyEnemy przeniesiono do klasy Attributes.
     //ARTUR
+
     private void ResetAttack()
     {
         isAttacking = false;

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2cefd7ad8b22a354781ccd86e14b22d0
+guid: 31a040f633fd69049be6cb967c4ee3f5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -891,10 +891,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 288783
-  packageName: RPG_Animations_Pack_FREE
-  packageVersion: 1.1
-  assetPath: Assets/DoubleL/Enemy Attack/Enemy_Attack_1_Run_InPlace.fbx
-  uploadId: 704351
