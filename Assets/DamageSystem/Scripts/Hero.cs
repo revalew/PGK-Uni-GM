@@ -89,19 +89,18 @@ public class Hero : MonoBehaviour
         {
             isAttacking = true;
             animator.SetTrigger("AttackTrigger");
-            DealDamage(enemyAttributes.gameObject);
+            DealDamage(enemyAttributes);
             Invoke(nameof(ResetAttack), heroAttributes.timeBetweenAttacks);
         }
         else
             animator.SetTrigger("EndTrigger");
     }
 
-    public void DealDamage(GameObject target)
+    public void DealDamage(Attributes target)
     {
-        enemyAttributes = target.GetComponent<Attributes>();
-        if (enemyAttributes != null)
+        if (target != null)
         {
-            enemyAttributes.TakeDamage(heroAttributes.damage);
+            target.TakeDamage(heroAttributes.damage);
         }
     }
 
