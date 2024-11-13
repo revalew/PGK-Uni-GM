@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class Attributes: MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
 
     public float health, damage, sightRange, attackRange, timeBetweenAttacks;
 

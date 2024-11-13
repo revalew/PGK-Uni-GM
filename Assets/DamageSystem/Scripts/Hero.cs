@@ -92,8 +92,6 @@ public class Hero : MonoBehaviour
             DealDamage(enemyAttributes);
             Invoke(nameof(ResetAttack), heroAttributes.timeBetweenAttacks);
         }
-        else
-            animator.SetTrigger("EndTrigger");
     }
 
     public void DealDamage(Attributes target)

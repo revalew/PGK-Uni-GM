@@ -771,6 +771,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 714367119752272817, guid: 9491abf08406a04f2924c7997a92db8e, type: 3}
   m_PrefabInstance: {fileID: 632405627}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &632405631 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3227617212004211154, guid: 9491abf08406a04f2924c7997a92db8e, type: 3}
+  m_PrefabInstance: {fileID: 632405627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &956131717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1885277800803042, guid: b26b6bfc124981fc3ac9e9dbb8a210b7, type: 3}
@@ -822,6 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af2cec7897658044afb4211ec70eb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1083739294}
   health: 100
   damage: 2
   sightRange: 12
@@ -927,6 +933,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4709505581537890, guid: b26b6bfc124981fc3ac9e9dbb8a210b7, type: 3}
   m_PrefabInstance: {fileID: 1083739292}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1083739294 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3227617212004211154, guid: b26b6bfc124981fc3ac9e9dbb8a210b7, type: 3}
+  m_PrefabInstance: {fileID: 1083739292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1083739297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,6 +980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af2cec7897658044afb4211ec70eb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 632405631}
   health: 100
   damage: 10
   sightRange: 6
@@ -989,7 +1001,6 @@ MonoBehaviour:
   agent: {fileID: 632405629}
   character: {fileID: 1524432612}
   enemy: {fileID: 1083739293}
-  treasure: {fileID: 0}
   heroAttributes: {fileID: 1524432610}
   enemyAttributes: {fileID: 956131729}
   whatIsGround:
