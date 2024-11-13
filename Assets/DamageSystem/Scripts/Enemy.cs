@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     //ARTUR
     // Zmienne health i damage przeniesiono do klasy Attributes.
-    private Animator animator;
+    public Animator animator;
 
     public ThirdPersonCharacter2 character;
 
