@@ -14,13 +14,13 @@ public class Enemy : MonoBehaviour
 
     //ARTUR
     // Zmienne health i damage przeniesiono do klasy Attributes.
-    public Attributes heroAttributes;
-
-    public Attributes enemyAttributes;
+    private Animator animator;
 
     public ThirdPersonCharacter2 character;
 
-    private Animator animator;
+    public Attributes heroAttributes;
+
+    public Attributes enemyAttributes;
     //ARTUR
 
     //Patroling

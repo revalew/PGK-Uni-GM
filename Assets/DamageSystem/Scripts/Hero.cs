@@ -9,19 +9,20 @@ public class Hero : MonoBehaviour
 
     public ThirdPersonCharacter2 character;
 
-    private Animator animator;
-
     public Transform enemy;
 
-    public LayerMask whatIsGround, whatIsEnemy;
+    public Transform treasure;
+
+    private Animator animator;
 
     public Attributes heroAttributes;
 
     public Attributes enemyAttributes;
 
+    public LayerMask whatIsGround, whatIsEnemy;
+
     //Attacking
     bool isAttacking;
-    public GameObject sword;
 
     //States
     public bool enemyInSightRange, enemyInAttackRange;
@@ -43,7 +44,7 @@ public class Hero : MonoBehaviour
         enemyInAttackRange = Physics.CheckSphere(transform.position, heroAttributes.attackRange, whatIsEnemy);
 
         //ARTUR
-        if (!enemyInSightRange && !enemyInAttackRange) Idle();
+        if (!enemyInSightRange && !enemyInAttackRange) ChaseTreasure();
         //ARTUR
         if (enemyInSightRange && !enemyInAttackRange) ChaseEnemy();
         if (enemyInAttackRange && enemyInSightRange) AttackEnemy();
@@ -55,11 +56,15 @@ public class Hero : MonoBehaviour
         agent.SetDestination(transform.position);
         character.Move(Vector3.zero, false, false);
     }
-    //ARTUR
+
+    private void ChaseTreasure()
+    {
+        agent.SetDestination(treasure.position);
+        character.Move(agent.desiredVelocity, false, false);
+    }
 
     private void ChaseEnemy()
     {
-        //ARTUR
         if (enemyAttributes.health > 0
             && heroAttributes.health > 0)
         {
@@ -68,8 +73,8 @@ public class Hero : MonoBehaviour
         }
         else
             Idle();
-        //ARTUR
     }
+    //ARTUR
 
     private void AttackEnemy()
     {
