@@ -15,8 +15,10 @@ public class PathChecking : MonoBehaviour
   
   [SerializeField] private GameObject _finnishTile = null; // Place we want to be able to reach
 
-  [SerializeField] private bool _pathAvailable = false; // Store info if target can be reached
+  [SerializeField] public bool _pathAvailable = false; // Store info if target can be reached
 
+  [SerializeField] private GameObject enemyUI = null;
+  [SerializeField] private GameObject buildingUI = null;
   [SerializeField] private GameObject _pathNotFoundUI = null;
 
   [SerializeField] private NavMeshPath _navMeshPath = null; // Calculate the path
@@ -34,7 +36,7 @@ public class PathChecking : MonoBehaviour
     if (CalculateNewPath())
     {
         _pathAvailable = true;
-        _character = _agent.GetComponent<ThirdPersonCharacter2>();
+        //_character = _agent.GetComponent<ThirdPersonCharacter2>();
     }
     else
     {
@@ -82,20 +84,22 @@ public class PathChecking : MonoBehaviour
   // // Use this after the level started. Hero will go to the finnish tile
   private void Update()
    {
-    if (_pathAvailable)
+    if (_pathAvailable && !_pathNotFoundUI.activeInHierarchy)
     {
-      // Move the agent
-      _agent.SetDestination(_finnishTile.transform.position);
-      
-    if (_agent.remainingDistance > _agent.stoppingDistance)
-    {
-      _character.Move(_agent.desiredVelocity, false, false);
-    }
-    else
-    {
-      _character.Move(Vector3.zero, false, false);
-    }
-    }
+      buildingUI.SetActive(false);
+      enemyUI.SetActive(true);
+    //   // Move the agent
+    //   _agent.SetDestination(_finnishTile.transform.position);
+
+    // if (_agent.remainingDistance > _agent.stoppingDistance)
+    // {
+    //   _character.Move(_agent.desiredVelocity, false, false);
+     }
+    // else
+    // {
+    //   _character.Move(Vector3.zero, false, false);
+    // }
+    // }
 
     //Animations w/ ThirdPersonCharacter2 controller
 

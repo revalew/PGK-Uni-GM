@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Enemy
   - Hero
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,15 +13,11 @@ TagManager:
   - Placement
   - Water
   - UI
+  - Player
   - Ground
-<<<<<<< HEAD
   - Mesh
-=======
   - Hero
   - Enemy
->>>>>>> damage
-  - 
-  - 
   - 
   - 
   - 

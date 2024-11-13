@@ -5,8 +5,10 @@ public class FisnishTrigger : MonoBehaviour
 {
     [SerializeField] 
     private GameObject endScreen = null;
-    public void OnTriggerEnter()
+
+    public void OnTriggerEnter(Collider collision)
     {
+      if(collision.tag == "Hero")
         endScreen.SetActive(true);
     }
   private void Update()

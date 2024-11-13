@@ -5,13 +5,15 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class Hero : MonoBehaviour
 {
+
+    public PathChecking pathChecking;
     public NavMeshAgent agent;
 
     public ThirdPersonCharacter2 character;
 
     public Transform enemy;
 
-    //public Transform treasure;
+    public Transform treasure;
 
     private Animator animator;
 
@@ -44,10 +46,10 @@ public class Hero : MonoBehaviour
         enemyInAttackRange = Physics.CheckSphere(transform.position, heroAttributes.attackRange, whatIsEnemy);
 
         //ARTUR
-        //if (!enemyInSightRange && !enemyInAttackRange) ChaseTreasure();
         //ARTUR
         if (enemyInSightRange && !enemyInAttackRange) ChaseEnemy();
-        if (enemyInAttackRange && enemyInSightRange) AttackEnemy();
+        if (enemyInAttackRange) AttackEnemy();
+        if (!enemyInSightRange && !enemyInAttackRange && pathChecking._pathAvailable) ChaseTreasure();
     }
 
     //ARTUR
@@ -57,11 +59,11 @@ public class Hero : MonoBehaviour
         character.Move(Vector3.zero, false, false);
     }
 
-    //private void ChaseTreasure()
-    //{
-    //    agent.SetDestination(treasure.position);
-    //    character.Move(agent.desiredVelocity, false, false);
-    //}
+    private void ChaseTreasure()
+    {
+       agent.SetDestination(treasure.position);
+       character.Move(agent.desiredVelocity, false, false);
+    }
 
     private void ChaseEnemy()
     {
@@ -88,7 +90,6 @@ public class Hero : MonoBehaviour
             && heroAttributes.health > 0)
         {
             isAttacking = true;
-            animator.SetTrigger("AttackTrigger");
             DealDamage(enemyAttributes.gameObject);
             Invoke(nameof(ResetAttack), heroAttributes.timeBetweenAttacks);
         }
@@ -98,6 +99,7 @@ public class Hero : MonoBehaviour
 
     public void DealDamage(GameObject target)
     {
+        animator.SetTrigger("AttackTrigger");
         enemyAttributes = target.GetComponent<Attributes>();
         if (enemyAttributes != null)
         {
