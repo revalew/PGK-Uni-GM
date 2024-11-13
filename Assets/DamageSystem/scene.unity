@@ -330,13 +330,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311600769}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6383727, y: -0.3041059, z: 0.7058415, w: 0.04228039}
-  m_LocalPosition: {x: -0.15, y: -0.35, z: -0.15}
-  m_LocalScale: {x: 0.04, y: 0.4, z: 0.04}
+  m_LocalRotation: {x: 0.7148087, y: -0.15776396, z: 0.6619178, w: 0.16131952}
+  m_LocalPosition: {x: -0.265, y: -0.678, z: -0.027}
+  m_LocalScale: {x: 0.04, y: 0.7, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1088964689}
-  m_LocalEulerAnglesHint: {x: 151.1, y: -90, z: 22.044006}
+  m_LocalEulerAnglesHint: {x: 153.929, y: -85.423004, z: 0.76400757}
 --- !u!136 &311600771
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -412,6 +412,116 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311600769}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &329304768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 329304769}
+  - component: {fileID: 329304772}
+  - component: {fileID: 329304771}
+  - component: {fileID: 329304770}
+  m_Layer: 7
+  m_Name: Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &329304769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329304768}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.12116334, y: -0.6811386, z: -0.23235959, w: -0.68365115}
+  m_LocalPosition: {x: 0.146, y: -0.268, z: -0.041}
+  m_LocalScale: {x: 0.03999743, y: 0.3, z: 0.039997444}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 632405630}
+  m_LocalEulerAnglesHint: {x: 208.83, y: -92.79599, z: -169.965}
+--- !u!136 &329304770
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329304768}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!23 &329304771
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329304768}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &329304772
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329304768}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &632405627
 PrefabInstance:
@@ -632,6 +742,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 714367119752272817, guid: 9491abf08406a04f2924c7997a92db8e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 329304769}
     - targetCorrespondingSourceObject: {fileID: 714367119752272793, guid: 9491abf08406a04f2924c7997a92db8e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 311600770}
@@ -651,6 +764,11 @@ Transform:
 --- !u!195 &632405629 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 195871887324367816, guid: 9491abf08406a04f2924c7997a92db8e, type: 3}
+  m_PrefabInstance: {fileID: 632405627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &632405630 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 714367119752272817, guid: 9491abf08406a04f2924c7997a92db8e, type: 3}
   m_PrefabInstance: {fileID: 632405627}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &956131717 stripped
@@ -684,9 +802,9 @@ MonoBehaviour:
   whatIsHero:
     serializedVersion: 2
     m_Bits: 128
+  character: {fileID: 1083739297}
   heroAttributes: {fileID: 1524432610}
   enemyAttributes: {fileID: 956131729}
-  character: {fileID: 1083739297}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   projectile: {fileID: 8422303053778137917, guid: 160f5c550f342ced39422e7083bbd630, type: 3}
@@ -852,10 +970,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  damage: 25
+  damage: 10
   sightRange: 6
   attackRange: 1.5
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 0.5
 --- !u!114 &1524432611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,15 +989,15 @@ MonoBehaviour:
   agent: {fileID: 632405629}
   character: {fileID: 1524432612}
   enemy: {fileID: 1083739293}
+  treasure: {fileID: 0}
+  heroAttributes: {fileID: 1524432610}
+  enemyAttributes: {fileID: 956131729}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 129
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 256
-  heroAttributes: {fileID: 1524432610}
-  enemyAttributes: {fileID: 956131729}
-  sword: {fileID: 311600769}
   enemyInSightRange: 1
   enemyInAttackRange: 0
 --- !u!114 &1524432612 stripped

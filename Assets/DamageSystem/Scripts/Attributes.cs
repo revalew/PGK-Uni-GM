@@ -19,7 +19,7 @@ public class Attributes: MonoBehaviour
         if (health <= 0)
         {
             animator.SetTrigger("DeathTrigger");
-            Invoke(nameof(DestroySelf), 7.0f);
+            Invoke(nameof(DestroySelf), 3.5f);
         }
     }
 

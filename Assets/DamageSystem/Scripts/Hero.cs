@@ -11,7 +11,7 @@ public class Hero : MonoBehaviour
 
     public Transform enemy;
 
-    public Transform treasure;
+    //public Transform treasure;
 
     private Animator animator;
 
@@ -44,7 +44,7 @@ public class Hero : MonoBehaviour
         enemyInAttackRange = Physics.CheckSphere(transform.position, heroAttributes.attackRange, whatIsEnemy);
 
         //ARTUR
-        if (!enemyInSightRange && !enemyInAttackRange) ChaseTreasure();
+        //if (!enemyInSightRange && !enemyInAttackRange) ChaseTreasure();
         //ARTUR
         if (enemyInSightRange && !enemyInAttackRange) ChaseEnemy();
         if (enemyInAttackRange && enemyInSightRange) AttackEnemy();
@@ -57,11 +57,11 @@ public class Hero : MonoBehaviour
         character.Move(Vector3.zero, false, false);
     }
 
-    private void ChaseTreasure()
-    {
-        agent.SetDestination(treasure.position);
-        character.Move(agent.desiredVelocity, false, false);
-    }
+    //private void ChaseTreasure()
+    //{
+    //    agent.SetDestination(treasure.position);
+    //    character.Move(agent.desiredVelocity, false, false);
+    //}
 
     private void ChaseEnemy()
     {
@@ -88,10 +88,12 @@ public class Hero : MonoBehaviour
             && heroAttributes.health > 0)
         {
             isAttacking = true;
+            animator.SetTrigger("AttackTrigger");
             DealDamage(enemyAttributes.gameObject);
-
             Invoke(nameof(ResetAttack), heroAttributes.timeBetweenAttacks);
         }
+        else
+            animator.SetTrigger("EndTrigger");
     }
 
     public void DealDamage(GameObject target)
@@ -99,14 +101,12 @@ public class Hero : MonoBehaviour
         enemyAttributes = target.GetComponent<Attributes>();
         if (enemyAttributes != null)
         {
-            animator.SetBool("AttackTrigger", true);
             enemyAttributes.TakeDamage(heroAttributes.damage);
         }
     }
 
     private void ResetAttack()
     {
-        animator.SetBool("AttackTrigger", false);
         isAttacking = false;
     }
 
