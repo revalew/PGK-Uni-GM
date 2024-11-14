@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ObjPlacer : MonoBehaviour
 {
+    public static Action OnBuildingPlaced;
     private List<GameObject> placedGameObject = new();
 
     public int PlaceObject(GameObject prefab, Vector3 position)
@@ -22,6 +23,7 @@ public class ObjPlacer : MonoBehaviour
 
         GameObject lastObject = placedGameObject[placedGameObject.Count - 1];
         lastObject.transform.Rotate(0, rotationAmount, 0, Space.Self);
+        OnBuildingPlaced?.Invoke();
     }
 
     private void Update()

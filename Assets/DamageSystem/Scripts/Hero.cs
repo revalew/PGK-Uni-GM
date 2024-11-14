@@ -31,8 +31,15 @@ public class Hero : MonoBehaviour
 
     private void Awake()
     {
-        enemy = GameObject.Find("Enemy").transform;
+        // enemy = GameObject.Find("Enemy").transform;
+        //enemy = GameObject.FindWithTag("Enemy").transform;
+
+        ObjPlacer.OnBuildingPlaced += FindEnemy;
         agent = GetComponent<NavMeshAgent>();
+    }
+
+    void FindEnemy(){
+        enemy = FindObjectOfType<Enemy>().transform;    
     }
 
     private void Start()
@@ -42,14 +49,29 @@ public class Hero : MonoBehaviour
 
     private void Update()
     {
+
+        if(enemy == null)
+            return;
+        
         enemyInSightRange = Physics.CheckSphere(transform.position, heroAttributes.sightRange, whatIsEnemy);
         enemyInAttackRange = Physics.CheckSphere(transform.position, heroAttributes.attackRange, whatIsEnemy);
 
-        //ARTUR
-        //ARTUR
-        if (enemyInSightRange && !enemyInAttackRange) ChaseEnemy();
-        if (enemyInAttackRange) AttackEnemy();
-        if (!enemyInSightRange && !enemyInAttackRange && pathChecking._pathAvailable) ChaseTreasure();
+        if (enemyInSightRange && !enemyInAttackRange) 
+        {
+            ChaseEnemy();
+            return;
+        }
+        if (enemyInAttackRange && enemyInSightRange) 
+        {
+            AttackEnemy();
+            return;
+        }
+
+        if (!enemyInSightRange && !enemyInAttackRange && pathChecking._pathAvailable) 
+        {
+            ChaseTreasure();
+            return;
+        }
     }
 
     //ARTUR
@@ -73,16 +95,14 @@ public class Hero : MonoBehaviour
             agent.SetDestination(enemy.position);
             character.Move(agent.desiredVelocity, false, false);
         }
-        else
-            Idle();
     }
     //ARTUR
 
     private void AttackEnemy()
     {
         //Przeciwnik nie porusza się podczas ataku.
-        agent.SetDestination(transform.position);
-        character.Move(Vector3.zero, false, false);
+        //agent.SetDestination(transform.position);
+        //character.Move(Vector3.zero, false, false);
         transform.LookAt(enemy);
 
         if (!isAttacking

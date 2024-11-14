@@ -175,6 +175,7 @@ MonoBehaviour:
   whatIsHero:
     serializedVersion: 2
     m_Bits: 512
+  animator: {fileID: 3227617212004211154}
   character: {fileID: 287369832265159443}
   heroAttributes: {fileID: 53972340564050418, guid: 971db90b440db124fa039484d0bdc303, type: 3}
   enemyAttributes: {fileID: 2168827400961817948}
@@ -196,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3227617212004211154}
-  health: 100
+  health: 2.19
   damage: 10
   sightRange: 2
   attackRange: 2

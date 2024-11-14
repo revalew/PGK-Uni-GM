@@ -97,8 +97,8 @@ public class Enemy : MonoBehaviour
             //ARTUR
             GameObject instance = Instantiate(projectile, spawnPoint.transform.position, Quaternion.identity);
             Rigidbody rb = instance.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 15f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 2f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 1f, ForceMode.Impulse);
 
             DetectCollision detector = instance.GetComponent<DetectCollision>();
             if (detector != null)

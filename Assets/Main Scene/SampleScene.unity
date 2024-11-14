@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -214,7 +215,7 @@ GameObject:
   - component: {fileID: 138721089}
   - component: {fileID: 138721088}
   - component: {fileID: 138721087}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3828,6 +3829,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 4709505581537890, guid: b26b6bfc124981fc3ac9e9dbb8a210b7, type: 3}
+    - target: {fileID: 7037053094725791029, guid: 9491abf08406a04f2924c7997a92db8e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1168922151}
     - target: {fileID: 7037053094725791029, guid: 9491abf08406a04f2924c7997a92db8e, type: 3}
       propertyPath: treasure
       value: 

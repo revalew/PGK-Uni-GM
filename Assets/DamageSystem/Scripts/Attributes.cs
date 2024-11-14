@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Attributes: MonoBehaviour
+public class Attributes : MonoBehaviour
 {
     public Animator animator;
 
@@ -11,6 +11,7 @@ public class Attributes: MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        health = 100;
     }
 
     public void TakeDamage(float value)
@@ -25,7 +26,7 @@ public class Attributes: MonoBehaviour
 
     private void DestroySelf()
     {
-        Destroy(gameObject);
+        DestroyImmediate(gameObject);
     }
 }
 // ARTUR

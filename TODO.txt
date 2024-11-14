@@ -1,0 +1,9 @@
+- state machine od nowa
+- collision na event system
+- wyszukiwanie enemy dynamicznie
+- statystyki na scriptable
+- static preview 
+- detekcja taila dla stawiania przeciwnika (odwrócenie warunku dla podłogi??? - jak nie ma taila to nie można postawić enemy)
+- fix grid (wychodzi dołem)
+- dodać dźwięki
+-
