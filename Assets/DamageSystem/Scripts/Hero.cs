@@ -15,7 +15,7 @@ public class Hero : MonoBehaviour
 
     public Transform treasure;
 
-    private Animator animator;
+    public Animator animator;
 
     public Attributes heroAttributes;
 
@@ -90,20 +90,17 @@ public class Hero : MonoBehaviour
             && heroAttributes.health > 0)
         {
             isAttacking = true;
-            DealDamage(enemyAttributes.gameObject);
+            DealDamage(enemyAttributes);
             Invoke(nameof(ResetAttack), heroAttributes.timeBetweenAttacks);
         }
-        else
-            animator.SetTrigger("EndTrigger");
     }
 
-    public void DealDamage(GameObject target)
+    public void DealDamage(Attributes target)
     {
-        animator.SetTrigger("AttackTrigger");
-        enemyAttributes = target.GetComponent<Attributes>();
-        if (enemyAttributes != null)
+        if (target != null)
         {
-            enemyAttributes.TakeDamage(heroAttributes.damage);
+            animator.SetTrigger("AttackTrigger");
+            target.TakeDamage(heroAttributes.damage);
         }
     }
 
